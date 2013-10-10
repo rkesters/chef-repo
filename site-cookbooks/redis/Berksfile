@@ -1,0 +1,6 @@
+site :opscode
+
+cookbook 'redisio'
+cookbook 'simple_iptables'
+
+metadata
