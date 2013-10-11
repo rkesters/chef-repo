@@ -235,7 +235,7 @@ without_group = node['gitlab']['database']['type'] == 'mysql' ? 'postgres' : 'my
 
 # Install Gems with bundle install
 execute "gitlab-bundle-install" do
-  command "bundle install --deployment --without development test #{without_group} aws"
+  command "/usr/local/ruby/#{node['gitlab']['install_ruby']}/bin/bundle install --deployment --without development test #{without_group} aws"
   cwd node['gitlab']['app_home']
   user node['gitlab']['user']
   group node['gitlab']['group']
@@ -245,7 +245,7 @@ end
 
 # Initialize database 
 execute "gitlab-bundle-rake" do
-  command "bundle exec rake gitlab:setup RAILS_ENV=production force=yes && touch .gitlab-setup"
+  command "/usr/local/ruby/#{node['gitlab']['install_ruby']}/bin/bundle exec rake gitlab:setup RAILS_ENV=production force=yes && touch .gitlab-setup"
   cwd node['gitlab']['app_home']
   user node['gitlab']['user']
   group node['gitlab']['group']
