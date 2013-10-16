@@ -1,6 +1,6 @@
 name "gitlab"
 description "install gitlab"
-run_list('recipe[build-essential]','recipe[mysql::server]' , "recipe[gitlab]")
+run_list('recipe[ruby-headers]','recipe[build-essential]','recipe[mysql::server]' , "recipe[gitlab]")
 
 
 default_attributes( 
