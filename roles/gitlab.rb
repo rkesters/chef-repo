@@ -11,7 +11,6 @@ default_attributes(
 	"authorization" => {
     		"sudo" => {
       		"groups" => ["admin", "wheel", "sysadmin"],
-      		"users" => ["jerry", "greg"],
      		"passwordless" => true
     		}
   	},
